@@ -10,6 +10,7 @@ const rings = [
     { size: "34%", color: "#FFC72C" },
     { size: "24%", color: "#000000" },
 ];
+const pop = [0.34, 1.56, 0.64, 1]; // rebond léger
 
 export default function Preloader() {
     const reduce = useReducedMotion();
@@ -34,10 +35,12 @@ export default function Preloader() {
                     animate={flood ? { rotate: 120, scale: 0.6 } : {}}
                     transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
                 >
+                    {/* Disque wax : taille réelle dès le départ, révélé par un cercle de découpe */}
                     <motion.div
-                        initial={{ scale: 0 }} animate={{ scale: 1 }}
-                        transition={{ type: "spring", stiffness: 90, damping: 14 }}
-                        className="absolute inset-0 overflow-hidden rounded-full"
+                        initial={{ clipPath: "circle(0% at 50% 50%)" }}
+                        animate={{ clipPath: "circle(50% at 50% 50%)" }}
+                        transition={{ duration: 0.8, ease: pop }}
+                        className="absolute inset-0"
                     >
                         <motion.div className="h-full w-full" animate={{ rotate: 360 }}
                                     transition={{ duration: 8, ease: "linear", repeat: Infinity }}>
@@ -46,14 +49,16 @@ export default function Preloader() {
                     </motion.div>
 
                     {rings.map((r, i) => (
-                        <motion.div key={r.size} initial={{ scale: 0 }} animate={{ scale: 1 }}
-                                    transition={{ type: "spring", stiffness: 130, damping: 11, delay: 0.25 + i * 0.2 }}
-                                    className="absolute inset-0 m-auto rounded-full"
+                        <motion.div key={r.size}
+                                    initial={{ clipPath: "circle(0% at 50% 50%)" }}
+                                    animate={{ clipPath: "circle(50% at 50% 50%)" }}
+                                    transition={{ duration: 0.55, ease: pop, delay: 0.25 + i * 0.2 }}
+                                    className="absolute inset-0 m-auto"
                                     style={{ width: r.size, height: r.size, background: r.color }} />
                     ))}
 
                     <motion.span
-                        initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                         transition={{ delay: 1.15, duration: 0.5 }}
                         className="absolute inset-0 flex items-center justify-center font-display text-[clamp(1rem,3.6vw,1.5rem)] font-semibold lowercase text-white"
                     >wax</motion.span>
