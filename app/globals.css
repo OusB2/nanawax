@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { background: #FFFBF2; color: #1B2A6B; font-family: var(--font-body), sans-serif; }
+::selection { background: #E8432E; color: #fff; }
+:focus-visible { outline: 3px solid #E8432E; outline-offset: 3px; }
+
+.marquee-track { animation: marquee 34s linear infinite; width: max-content; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.spin-slow { animation: spin 60s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track, .spin-slow { animation: none; }
+}
