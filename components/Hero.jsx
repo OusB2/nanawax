@@ -10,7 +10,7 @@ import { formatPrice } from "@/lib/data";
 gsap.registerPlugin(ScrollTrigger);
 
 const T = 2.8; // attend la fin de l'écran d'ouverture
-const lines = ["Le wax", "prend la", "parole."];
+const lines = ["Notre", "histoire", "se porte."];
 const wax = ["#E8432E", "#FFFBF2", "#1B2A6B", "#FFC72C"];
 const tags = [
   { label: "Robe Adjoa", price: 45000, cls: "left-[-12%] top-[24%]", delay: T + 0.9 },
