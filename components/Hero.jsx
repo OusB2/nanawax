@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const T = 1.3; // attend la fin de l'écran d'ouverture
+const T = 2.8; // attend la fin de l'écran d'ouverture
 const lines = ["Le wax", "prend la", "parole."];
 const wax = ["#E8432E", "#FFFBF2", "#1B2A6B", "#FFC72C"];
 const tags = [
