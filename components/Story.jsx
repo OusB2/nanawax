@@ -40,7 +40,7 @@ export default function Story() {
           </div>
           <figure className="story-photo mx-auto w-full max-w-sm">
             <div className="aspect-[3/4] overflow-hidden rounded-t-full rounded-b-[2rem]">
-              <Media id="maureen" src="/images/maureen.jpg" alt="Maureen Ayité, fondatrice de NANAWAX" variant={1}
+              <Media id="maureen" src="/images/maureen.png" alt="Maureen Ayité, fondatrice de NANAWAX" variant={1}
                      colors={["#1B2A6B", "#FFC72C", "#FFFBF2", "#E8432E"]} className="h-full w-full" />
             </div>
             <figcaption className="mt-4 text-center font-display text-xl font-bold">Maureen Ayité, fondatrice</figcaption>
